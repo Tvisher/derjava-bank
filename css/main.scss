@@ -709,6 +709,9 @@ footer {
 }
 
 @media (max-width: 576px) {
+  .header__slider .swiper-wrapper {
+    gap: 20px;
+  }
   .card {
     width: 100%;
   }
