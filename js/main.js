@@ -59,3 +59,38 @@ const mobBtn = document.querySelector('.mobile-btn');
 const headerContent = document.querySelector('.header__content')
 mobBtn.addEventListener('click', (e) => headerContent.classList.toggle('show'))
 
+// const infoBtn = document.querySelector('.info__btn');
+// const infoPlate = document.querySelector('.info__plate')
+
+// if (infoBtn) {
+//     infoBtn.addEventListener('click', (e) => {
+//         infoPlate.classList.toggle('show');
+//     })
+// }
+
+
+
+const gallerySliderThumbs = new Swiper(".gallery-thumb-slider", {
+    // loop: true,
+    speed: 1000,
+    spaceBetween: 10,
+    slidesPerView: 'auto',
+    freeMode: true,
+    watchSlidesProgress: true,
+});
+const gallerySlider = new Swiper(".gallery-main-slider", {
+    loop: true,
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    speed: 1000,
+    spaceBetween: 10,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+        swiper: gallerySliderThumbs,
+    },
+});
