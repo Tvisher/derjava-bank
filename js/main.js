@@ -72,6 +72,7 @@ mobBtn.addEventListener('click', (e) => headerContent.classList.toggle('show'))
 
 const gallerySliderThumbs = new Swiper(".gallery-thumb-slider", {
     // loop: true,
+    // centeredSlides: true,
     speed: 1000,
     spaceBetween: 10,
     slidesPerView: 'auto',
