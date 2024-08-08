@@ -34,7 +34,7 @@ const cardsSlider = new Swiper('.cards__slider', {
         activeIndexChange(slider) {
             timelineArrow.style.left = `${timelines[slider.activeIndex].dataset.left}%`;
         },
-        slideChangeTransitionEnd() {
+        slideChangeTransitionStart() {
             const nextSlide = document.querySelector('.cards__slider .swiper-slide-next');
             const prevSlide = document.querySelector('.cards__slider .swiper-slide-prev');
             const nextBtnText = nextSlide ? nextSlide.querySelector('.block__year').innerHTML : '';
@@ -72,8 +72,8 @@ mobBtn.addEventListener('click', (e) => headerContent.classList.toggle('show'))
 
 const gallerySliderThumbs = new Swiper(".gallery-thumb-slider", {
     // loop: true,
-    // centeredSlides: true,
-    speed: 1000,
+    // centeredSlidesBounds: true,
+    speed: 800,
     spaceBetween: 10,
     slidesPerView: 'auto',
     freeMode: true,
@@ -85,7 +85,7 @@ const gallerySlider = new Swiper(".gallery-main-slider", {
     fadeEffect: {
         crossFade: true
     },
-    speed: 1000,
+    speed: 800,
     spaceBetween: 10,
     navigation: {
         nextEl: ".swiper-button-next",
@@ -95,3 +95,15 @@ const gallerySlider = new Swiper(".gallery-main-slider", {
         swiper: gallerySliderThumbs,
     },
 });
+
+
+
+
+const slidesToFancybox = document.querySelectorAll('.gallery-main-slider .slide-image');
+slidesToFancybox.forEach(slide => {
+    const imageUrl = slide.querySelector('img').getAttribute('src');
+    slide.setAttribute('data-fancybox', 'gallery');
+    slide.setAttribute('data-src', imageUrl);
+});
+
+Fancybox.bind("[data-fancybox]", {});
